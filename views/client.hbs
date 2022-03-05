@@ -1,0 +1,18 @@
+<div class="blogs content">
+    <h2>{{ title }}</h2>
+    <img src="">
+    <script>
+        // get img dom element
+        const img = document.querySelector('img');
+        
+        const WS_URL = 'ws://localhost:8001';
+        const ws = new WebSocket(WS_URL);
+        ws.onopen = () => console.log(`Connected to ${WS_URL}`);
+        ws.onmessage = message => {
+            // set the base64 string to the src tag of the image
+            console.log(message.data.toString())
+            //{{!-- img.src = `data:image/jpeg;base64,${message.data}`; --}}
+            img.src = message.data.toString()
+        }
+    </script>
+</div>
