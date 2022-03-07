@@ -23,7 +23,7 @@ wsServer.on('connection', (ws, req) => {
     console.log('Connected');
     // add new connected client
     connectedClients.push(ws);
-    // listen for messages from the streamer, the clients will not send anything so we don't need to filter
+    // listen for messages from the streamer 
     ws.on('message', data => {
         data = data.toString();
         // console.log('------------------------------------------------------------------------------------------------')
@@ -54,7 +54,7 @@ const handlebars = exphbs.create({
     helpers: {
         baseUrl: (path) => {
             return baseUrl + path
-        }
+        },
     }
 });
 
